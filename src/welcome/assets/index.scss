@@ -1,10 +1,16 @@
 $body-bg: var(--vscode-editor-background);
 $body-color: var(--vscode-foreground);
 // $primary: var(--vscode-foreground);
-$link-color: var(--vscode-textlink-activeforeground) !default;
+$link-color: var(--vscode-textLink-foreground) !default;
 $link-hover-color: $link-color;
 $link-hover-decoration: none !default;
-// $list-group-bg:                     #ffffff !default;
+
+$list-group-bg: var(--vscode-notifications-background) !default;
+$list-group-active-bg: $list-group-bg;
+$list-group-hover-bg: $list-group-bg;
+$list-group-action-active-bg: $list-group-bg;
+$list-group-border-color: var(--vscode-notifications-border) !default;
+$list-group-action-color: var(--vscode-notifications-foreground) !default;
 
 @import "~bootstrap/scss/bootstrap";
 
