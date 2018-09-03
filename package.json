@@ -30,6 +30,10 @@
   },
   "main": "./out/extension",
   "activationEvents": [
+    "onLanguage:java",
+    "workspaceContains:pom.xml",
+    "workspaceContains:build.gradle",
+    "workspaceContains:mnvw",
     "onCommand:java.welcome"
   ],
   "contributes": {

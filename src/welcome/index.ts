@@ -4,11 +4,6 @@ import { readFile } from 'fs';
 import * as path from 'path';
 
 let welcomeView: vscode.WebviewPanel | undefined;
-let viewBody: string;
-
-readFile(require.resolve('./assets/index.html'), (err, data) => {
-  viewBody = data.toString();
-});
 
 export default function (this: vscode.ExtensionContext) {
   if (welcomeView) {
@@ -27,7 +22,10 @@ export default function (this: vscode.ExtensionContext) {
   );
 
   welcomeView.iconPath = vscode.Uri.file(path.join(this.extensionPath, 'logo.png'));
-  welcomeView.webview.html = viewBody;
+
+  readFile(require.resolve('./assets/index.html'), (err, data) => {
+    welcomeView.webview.html = data.toString();
+  });
 
   welcomeView.onDidDispose(() => {
     welcomeView = undefined;
