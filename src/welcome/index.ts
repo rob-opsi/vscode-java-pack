@@ -1,9 +1,22 @@
 import * as vscode from 'vscode';
 
 import { readFile } from 'fs';
+import * as path from 'path';
 
-export default () => {
-  const welcomeView = vscode.window.createWebviewPanel(
+let welcomeView: vscode.WebviewPanel | undefined;
+let viewBody: string;
+
+readFile(require.resolve('./assets/index.html'), (err, data) => {
+  viewBody = data.toString();
+});
+
+export default function (this: vscode.ExtensionContext) {
+  if (welcomeView) {
+    welcomeView.reveal();
+    return;
+  }
+
+  welcomeView = vscode.window.createWebviewPanel(
     'java.welcome',
     'Java: Welcome',
     vscode.ViewColumn.One,
@@ -13,8 +26,10 @@ export default () => {
     }
   );
 
-  readFile(require.resolve('./assets/index.html'), (err, data) => {
-    welcomeView.webview.html = data.toString();
-  });
+  welcomeView.iconPath = vscode.Uri.file(path.join(this.extensionPath, 'logo.png'));
+  welcomeView.webview.html = viewBody;
 
+  welcomeView.onDidDispose(() => {
+    welcomeView = undefined;
+  });
 };
