@@ -1,11 +1,14 @@
 import * as vscode from 'vscode';
 
-import { readFile } from 'fs';
+import { readFile as fsReadFile } from 'fs';
+import * as util from 'util';
 import * as path from 'path';
+
+const readFile = util.promisify(fsReadFile);
 
 let welcomeView: vscode.WebviewPanel | undefined;
 
-export default function (this: vscode.ExtensionContext) {
+export default async function (this: vscode.ExtensionContext) {
   if (welcomeView) {
     welcomeView.reveal();
     return;
@@ -22,12 +25,10 @@ export default function (this: vscode.ExtensionContext) {
   );
 
   welcomeView.iconPath = vscode.Uri.file(path.join(this.extensionPath, 'logo.png'));
-
-  readFile(require.resolve('./assets/index.html'), (err, data) => {
-    welcomeView.webview.html = data.toString();
-  });
+  let buffer = await readFile(require.resolve('./assets/index.html'));
+  welcomeView.webview.html = buffer.toString();
 
   welcomeView.onDidDispose(() => {
     welcomeView = undefined;
   });
-};
+}

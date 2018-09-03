@@ -54,7 +54,7 @@
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "@types/node": "^7.0.43",
+    "@types/node": "^8.0.0",
     "autoprefixer": "^8.5.1",
     "bootstrap": "^4.1.1",
     "css-loader": "^0.28.11",
