@@ -1,7 +1,7 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import * as opn from 'opn';
+const openurl: any = require('openurl');
 
 import welcomeCmdHandler from './welcome';
 
@@ -30,9 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
   }));
 
   context.subscriptions.push(vscode.commands.registerCommand('java.helper.showExtension', async (extensionName: string) => {
-    opn(vscode.Uri.parse(`vscode:extension/${extensionName}`).toString(), { app: '' });
-    //await vscode.commands.executeCommand('vscode.open', vscode.Uri.parse(`vscode:extension/${extensionName}`));
-    //await vscode.commands.executeCommand("vscode.open", vscode.Uri.parse(`https://marketplace.visualstudio.com/items?itemName=${extensionName}`));
+    openurl.open(vscode.Uri.parse(`vscode:extension/${extensionName}`).toString());
   }));
 
   vscode.commands.executeCommand('java.welcome');
