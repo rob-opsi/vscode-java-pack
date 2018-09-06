@@ -19,10 +19,8 @@
           <div class="col">
             <h3 class="font-weight-light">Start</h3>
             <p>
-              <a href="javascript:cmd()">Create a Maven project...</a><br>
-              <a href="javascript:cmd()">Create a Spring Boot project...</a><br>
-              <a href="javascript:cmd()">Create a function app...</a><br>
-              <a href="javascript:cmd()">Create a standalone Java file...</a><br>
+              <a href="command:java.helper.createMavenProject" title="Create a Maven project using archetypes">Create a Maven project...</a><br>
+              <!-- <a href="command:java.helper.createJavaFile">Create a standalone Java file...</a><br> -->
             </p>
           </div>
         </div>
@@ -30,17 +28,17 @@
           <div class="col">
             <h3 class="font-weight-light">Help</h3>
             <p>
-              <a href="https://code.visualstudio.com/docs/languages/java">Java in VS Code</a><br>
-              <a href="https://code.visualstudio.com/docs/java/java-spring-boot">Spring Boot with VS Code</a><br>
-              <a href="https://code.visualstudio.com/docs/java/java-debugging">Java Debugging and Testing</a><br>
+              <a href="https://code.visualstudio.com/docs/languages/java">Java in VS Code Tutorial</a><br>
+              <a href="https://code.visualstudio.com/docs/java/java-debugging">Debugging Tutorial</a><br>
             </p>
           </div>
         </div>
         <div class="row mb-3">
           <div class="col">
-            <h3 class="font-weight-light">Samples</h3>
+            <h3 class="font-weight-light">Key Bindings</h3>
             <p>
-              <a href="https://github.com/Microsoft/todo-app-java-on-azure">Todo App Java On Azure</a><br>
+              <a href="command:java.helper.showExtension?%22k--kato.intellij-idea-keybindings%22">IntelliJ IDEA Keybindings</a><br>
+              <a href="command:java.helper.showExtension?%22alphabotsec.vscode-eclipse-keybindings%22">Eclipse Keymap</a><br>
             </p>
           </div>
         </div>
@@ -48,47 +46,37 @@
           <div class="col">
             <h3 class="font-weight-light">Extensions</h3>
             <p>
-              <a href="#">Java Language Support by Red Hat</a><br>
-              <a href="#">Debugger for Java</a><br>
-              <a href="#">Java Test Runner</a><br>
-              <a href="#">Maven for Java</a><br>
-              <a href="#">Spring Boot Extension Pack</a><br>
-              <a href="#">Tomcat for Java</a><br>
-              <a href="#">Checkstyle for Java</a><br>
+              <a href="command:java.helper.showExtension?%22redhat.java%22" title="Java Linting, Intellisense, formatting, refactoring, Maven/Gradle support and more...">Java Language Support by Red Hat</a><br>
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-java-debug%22" title="Java debugger for Visual Studio Code">Debugger for Java</a><br>
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-java-test%22" title="Run and debug JUnit test cases">Java Test Runner</a><br>
+              <a href="command:java.helper.showExtension?%22vscjava.vscode-maven%22" title="Manage Maven projects, execute goals, generate projects from archetypes">Maven for Java</a><br>
+              <a href="command:java.helper.showExtension?%22adashen.vscode-tomcat%22" title="Debug or run Java WAR package in Apache Tomcat">Tomcat for Java</a><br>
+              <a href="command:java.helper.showExtension?%22shengchen.vscode-checkstyle%22" title="Run CheckStyle while editing code">Checkstyle for Java</a><br>
             </p>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="row">
+        <div class="row mb-3">
           <div class="col">
-            <h3 class="font-weight-light">Tutorials</h3>
-            <div class="list-group">
-              <a href="#" title="AKS" class="list-group-item list-group-item-action">
-                <div>
-                  <span>Kubernetes</span><br>
-                  <span class="text-muted">Prepare an application for Azure Kubernetes Service</span>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div>
-                  <span>Serverless</span><br>
-                  <span class="text-muted">Build an Azure Functions app</span>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div>
-                  <span>Test</span><br>
-                  <span class="text-muted">Run and debug JUnit test cases</span>
-                </div>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div>
-                  <span>Maven</span><br>
-                  <span class="text-muted">Quickly access Maven commands</span>
-                </div>
-              </a>
-            </div>
+            <h3 class="font-weight-light">Spring</h3>
+            <p>
+              <a href="command:java.helper.createSpringBootProject" title="Create a project with Spring Initializr">Create a Spring Boot project...</a><br>
+              <a href="https://code.visualstudio.com/docs/java/java-spring-boot" title="Learn how to work with Spring Boot projects in VS Code">Spring Boot with VS Code</a><br>
+              <a href="https://github.com/spring-projects/spring-petclinic" title="Run PetClinic sample app in VS Code">Spring PetClinic Sample Application</a><br>
+              <a href="command:java.helper.showExtension?%22pivotal.vscode-boot-dev-pack%22" title="Extension collection for developing Spring Boot applications">Spring Boot Extension Pack</a><br>
+            </p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <h3 class="font-weight-light">Microservices</h3>
+            <p>
+              <a href="https://code.visualstudio.com/docs/java/java-kubernetes">Java with Kubernetes in VS Code</a><br>
+              <a href="https://code.visualstudio.com/docs/java/java-container">Java with Docker in VS Code</a><br>
+              <a href="command:java.helper.showExtension?%22ms-kubernetes-tools.vscode-kubernetes-tools%22">Kubernetes Extension</a><br>
+              <a href="command:java.helper.showExtension?%22peterjausovec.vscode-docker%22">Docker Extension</a><br>
+            </p>
           </div>
         </div>
       </div>
