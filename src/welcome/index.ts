@@ -31,4 +31,10 @@ export default async function (this: vscode.ExtensionContext) {
   welcomeView.onDidDispose(() => {
     welcomeView = undefined;
   });
+
+  const installedExtensions = vscode.extensions.all.map(ext => ext.id);
+  welcomeView.webview.postMessage({
+    name: 'hideInstalledExtensions',
+    installedExtensions: installedExtensions
+  });
 }
