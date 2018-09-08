@@ -7,7 +7,7 @@ module.exports = function (env, argv) {
 
   return {
     entry: {
-      welcome: './src/welcome/assets/index.ts'
+      overview: './src/overview/assets/index.ts'
     },
     module: {
       rules: [{
@@ -39,8 +39,8 @@ module.exports = function (env, argv) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, 'out/welcome/assets/index.html'),
-        template: 'src/welcome/assets/index.html',
+        filename: path.resolve(__dirname, 'out/overview/assets/index.html'),
+        template: 'src/overview/assets/index.html',
         inlineSource: '.(js|css)$'
       }),
       new HtmlWebpackInlineSourcePlugin(),

@@ -34,13 +34,13 @@
     "workspaceContains:pom.xml",
     "workspaceContains:build.gradle",
     "workspaceContains:mnvw",
-    "onCommand:java.welcome"
+    "onCommand:java.overview"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "java.welcome",
-        "title": "Java: Welcome"
+        "command": "java.overview",
+        "title": "Java: Overview"
       }
     ]
   },

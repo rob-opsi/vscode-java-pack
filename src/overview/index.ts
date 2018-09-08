@@ -6,17 +6,17 @@ import * as path from 'path';
 
 const readFile = util.promisify(fsReadFile);
 
-let welcomeView: vscode.WebviewPanel | undefined;
+let overviewView: vscode.WebviewPanel | undefined;
 
 export default async function (this: vscode.ExtensionContext) {
-  if (welcomeView) {
-    welcomeView.reveal();
+  if (overviewView) {
+    overviewView.reveal();
     return;
   }
 
-  welcomeView = vscode.window.createWebviewPanel(
-    'java.welcome',
-    'Java: Welcome',
+  overviewView = vscode.window.createWebviewPanel(
+    'java.overview',
+    'Java Overview',
     vscode.ViewColumn.One,
     {
       enableScripts: true,
@@ -25,26 +25,26 @@ export default async function (this: vscode.ExtensionContext) {
     }
   );
 
-  welcomeView.iconPath = vscode.Uri.file(path.join(this.extensionPath, 'logo.png'));
+  overviewView.iconPath = vscode.Uri.file(path.join(this.extensionPath, 'logo.png'));
   let buffer = await readFile(require.resolve('./assets/index.html'));
-  welcomeView.webview.html = buffer.toString();
+  overviewView.webview.html = buffer.toString();
 
-  welcomeView.onDidDispose(() => {
-    welcomeView = undefined;
+  overviewView.onDidDispose(() => {
+    overviewView = undefined;
   });
 
   const installedExtensions = vscode.extensions.all.map(ext => ext.id.toLowerCase());
-  welcomeView.webview.postMessage({
+  overviewView.webview.postMessage({
     command: 'hideInstalledExtensions',
     installedExtensions: installedExtensions
   });
 
-  welcomeView.webview.postMessage({
+  overviewView.webview.postMessage({
     command: 'setOverviewVisibility',
     visibility: this.globalState.get('showWhenUsingJava')
   });
 
-  welcomeView.webview.onDidReceiveMessage((e) => {
+  overviewView.webview.onDidReceiveMessage((e) => {
     if (e.command === 'setOverviewVisibility') {
       this.globalState.update('showWhenUsingJava', e.visibility);
     }

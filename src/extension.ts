@@ -3,10 +3,10 @@
 import * as vscode from 'vscode';
 const openurl: any = require('openurl');
 
-import welcomeCmdHandler from './welcome';
+import overviewCmdHandler from './overview';
 
 export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(vscode.commands.registerCommand('java.welcome', welcomeCmdHandler, context));
+  context.subscriptions.push(vscode.commands.registerCommand('java.overview', overviewCmdHandler, context));
 
   context.subscriptions.push(vscode.commands.registerCommand('java.helper.createMavenProject', async () => {
     if (!await validateAndRecommendExtension('vscjava.vscode-maven', 'Maven extension is recommended to help create Java projects and work with custom goals.')) {
@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   if (showWhenUsingJava) {
-    vscode.commands.executeCommand('java.welcome');
+    vscode.commands.executeCommand('java.overview');
   }
 }
 
