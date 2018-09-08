@@ -7,7 +7,7 @@ window.addEventListener('message', event => {
   }
 });
 
-function hideInstalledExtensions(extensions) {
+function hideInstalledExtensions(extensions: any) {
   $('div[ext]').each((index, elem) => {
     let anchor = $(elem);
     if (extensions.indexOf(anchor.attr('ext')) !== -1) {
