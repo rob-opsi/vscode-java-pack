@@ -20,7 +20,8 @@ export default async function (this: vscode.ExtensionContext) {
     vscode.ViewColumn.One,
     {
       enableScripts: true,
-      enableCommandUris: true
+      enableCommandUris: true,
+      retainContextWhenHidden: true
     }
   );
 

@@ -1,3 +1,4 @@
+import * as $ from "jquery";
 import './index.scss';
 
 window.addEventListener('message', event => {
@@ -7,11 +8,10 @@ window.addEventListener('message', event => {
 });
 
 function hideInstalledExtensions(extensions) {
-  const anchors = document.querySelectorAll('div[ext]');
-  anchors.forEach(anchor => {
-    if (extensions.indexOf(anchor.attributes['ext'].value) !== -1) {
-      console.log(anchor.attributes['ext']);
-      anchor.setAttribute('class', 'd-none');
+  $('div[ext]').each((index, elem) => {
+    let anchor = $(elem);
+    if (extensions.indexOf(anchor.attr('ext')) !== -1) {
+      anchor.addClass('d-none');
     }
   });
 }
