@@ -13,7 +13,8 @@ window.addEventListener('message', event => {
 function hideInstalledExtensions(extensions: any) {
   $('div[ext]').each((index, elem) => {
     let anchor = $(elem);
-    if (extensions.indexOf(anchor.attr('ext').toLowerCase()) !== -1) {
+    let ext = (anchor.attr('ext') || '').toLowerCase();
+    if (extensions.indexOf(ext) !== -1) {
       anchor.hide();
     }
   });

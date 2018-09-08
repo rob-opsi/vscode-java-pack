@@ -33,7 +33,12 @@ export function activate(context: vscode.ExtensionContext) {
     openurl.open(vscode.Uri.parse(`vscode:extension/${extensionName}`).toString());
   }));
 
-  if (context.globalState.get('showWhenUsingJava')) {
+  let showWhenUsingJava = context.globalState.get('showWhenUsingJava');
+  if (showWhenUsingJava === undefined) {
+    showWhenUsingJava = true;
+  }
+
+  if (showWhenUsingJava) {
     vscode.commands.executeCommand('java.welcome');
   }
 }
