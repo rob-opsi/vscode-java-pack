@@ -33,7 +33,9 @@ export function activate(context: vscode.ExtensionContext) {
     openurl.open(vscode.Uri.parse(`vscode:extension/${extensionName}`).toString());
   }));
 
-  vscode.commands.executeCommand('java.welcome');
+  if (context.globalState.get('showWhenUsingJava')) {
+    vscode.commands.executeCommand('java.welcome');
+  }
 }
 
 async function validateAndRecommendExtension(extName: string, message: string): Promise<boolean> {

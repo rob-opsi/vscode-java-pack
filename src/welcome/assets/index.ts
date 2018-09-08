@@ -2,16 +2,18 @@ import * as $ from "jquery";
 import './index.scss';
 
 window.addEventListener('message', event => {
-  if (event.data.name === 'hideInstalledExtensions') {
+  if (event.data.command === 'hideInstalledExtensions') {
     hideInstalledExtensions(event.data.installedExtensions);
     hideEmptySections();
+  } else if (event.data.command === 'setOverviewVisibility') {
+    $('#showWhenUsingJava').prop('checked', event.data.visibility);
   }
 });
 
 function hideInstalledExtensions(extensions: any) {
   $('div[ext]').each((index, elem) => {
     let anchor = $(elem);
-    if (extensions.indexOf(anchor.attr('ext')) !== -1) {
+    if (extensions.indexOf(anchor.attr('ext').toLowerCase()) !== -1) {
       anchor.hide();
     }
   });
@@ -24,3 +26,13 @@ function hideEmptySections() {
     }
   });
 }
+
+declare function acquireVsCodeApi(): any;
+const vscode = acquireVsCodeApi();
+
+$('#showWhenUsingJava').change(function () {
+  vscode.postMessage({
+    command: 'setOverviewVisibility',
+    visibility: $(this).is(':checked')
+  });
+});

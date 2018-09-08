@@ -33,9 +33,20 @@ export default async function (this: vscode.ExtensionContext) {
     welcomeView = undefined;
   });
 
-  const installedExtensions = vscode.extensions.all.map(ext => ext.id);
+  const installedExtensions = vscode.extensions.all.map(ext => ext.id.toLowerCase());
   welcomeView.webview.postMessage({
-    name: 'hideInstalledExtensions',
+    command: 'hideInstalledExtensions',
     installedExtensions: installedExtensions
+  });
+
+  welcomeView.webview.postMessage({
+    command: 'setOverviewVisibility',
+    visibility: this.globalState.get('showWhenUsingJava')
+  });
+
+  welcomeView.webview.onDidReceiveMessage((e) => {
+    if (e.command === 'setOverviewVisibility') {
+      this.globalState.update('showWhenUsingJava', e.visibility);
+    }
   });
 }
