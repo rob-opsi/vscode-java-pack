@@ -70,8 +70,12 @@ export async function createSpringBootProjectCmdHandler(context: vscode.Extensio
   await vscode.commands.executeCommand('spring.initializr.maven-project');
 }
 
-export async function showExtensionCmdHandler(context: vscode.ExtensionContext, extensionName: string) {
+export async function showExtensionCmdHandler(context: vscode.ExtensionContext, operationId: string, extensionName: string) {
   openurl.open(vscode.Uri.parse(`vscode:extension/${extensionName}`).toString());
+}
+
+export async function openUrlCmdHandler(context: vscode.ExtensionContext, operationId: string, url: string) {
+  openurl.open(url);
 }
 
 export async function showOverviewPageOnActivation(context: vscode.ExtensionContext) {
