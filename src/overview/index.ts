@@ -26,7 +26,7 @@ export async function overviewCmdHandler(context: vscode.ExtensionContext) {
     }
   );
 
-  overviewView.iconPath = vscode.Uri.file(path.join(context.extensionPath, 'logo.png'));
+  overviewView.iconPath = vscode.Uri.file(path.join(context.extensionPath, 'logo.lowres.png'));
   let buffer = await readFile(require.resolve('./assets/index.html'));
   overviewView.webview.html = buffer.toString();
 
