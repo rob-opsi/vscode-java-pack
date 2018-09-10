@@ -9,6 +9,7 @@
   "engines": {
     "vscode": "^1.26.0"
   },
+  "aiKey": "b4a8a622-6ac7-4cf8-83aa-f325e1890795",
   "icon": "logo.png",
   "keywords": [
     "java",
@@ -81,6 +82,7 @@
     "vscjava.vscode-maven"
   ],
   "dependencies": {
-    "openurl": "^1.1.1"
+    "openurl": "^1.1.1",
+    "vscode-extension-telemetry-wrapper": "^0.3.0"
   }
 }
