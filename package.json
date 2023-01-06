@@ -61,7 +61,7 @@
     "bootstrap": "^4.1.1",
     "css-loader": "^0.28.11",
     "html-webpack-inline-source-plugin": "0.0.10",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "jquery": "^3.3.1",
     "node-sass": "^4.9.0",
     "popper.js": "^1.14.3",
@@ -73,7 +73,7 @@
     "typescript": "^2.6.1",
     "vscode": "^1.1.17",
     "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.4"
+    "webpack-cli": "^5.0.1"
   },
   "extensionPack": [
     "redhat.java",
